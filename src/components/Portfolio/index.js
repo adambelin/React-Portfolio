@@ -1,8 +1,8 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 
+function Portfolio() {
 
-// function Portfolio() {
-
+//   // Replace links with deployed projects and GitHub repos
 //   const [projects] = useState([
 //     {
 //       name: 'surf-report',
@@ -36,88 +36,45 @@
 //     },
 //   ]);
 
-
-import React, { useState } from 'react';
-
-import { validateEmail } from '../../utils/helpers';
-
-function Contact() {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [errorMessage, setErrorMessage] = useState('');
-  const { name, email, message } = formState;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!errorMessage) {
-      console.log('Submit Form', formState);
-    }
-  };
-
-  const handleChange = (e) => {
-    if (e.target.name === 'email') {
-      const isValid = validateEmail(e.target.value);
-      if (!isValid) {
-        setErrorMessage('Your email is invalid.');
-      } else {
-        setErrorMessage('');
-      }
-    } else {
-      if (!e.target.value.length) {
-        setErrorMessage(`${e.target.name} is required.`);
-      } else {
-        setErrorMessage('');
-      }
-    }
-    if (!errorMessage) {
-      setFormState({ ...formState, [e.target.name]: e.target.value });
-      console.log('Handle Form', formState);
-    }
-  };
-
   return (
-    <section>
-      <form id="contact-form" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            defaultValue={name}
-            onBlur={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email address:</label>
-          <input
-            type="email"
-            name="email"
-            defaultValue={email}
-            onBlur={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="message">Message:</label>
-          <textarea
-            name="message"
-            rows="5"
-            defaultValue={message}
-            onBlur={handleChange}
-          />
-        </div>
-        {errorMessage && (
-          <div>
-            <p className="error-text">{errorMessage}</p>
-          </div>
-        )}
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-  );
-}
+    <div>
+      <div class="projects">
 
-export default Contact;
+<div class="run-buddy">
+    <a href="https://adambelin.github.io/run-buddy/" target="_blank" rel="noopener">
+    <img src="./assets/images/run-buddy.png" alt="Run Buddy Landing Page"/>
+    </a>
+    <div>
+        <p class="project-label">Run Buddy</p>
+        <p>HTML/CSS</p>
+    </div>
+</div>
+
+<div class="two-column">
+    <div class="twitter">
+        <a href="https://twitter.com/" target="_blank" rel="noopener">
+        <img src="./assets/images/twitter.png" alt="Twitter landing page"/>
+        </a>
+        <div>
+            <p class="project-label">Twitter</p>
+            <p>Javascript/HTML/CSS</p>
+        </div>
+    </div>
+
+
+    <div class="amazon">
+        <a href="https://amazon.com/" target="_blank" rel="noopener">
+        <img src="./assets/images/amazon.png" alt="amazon landing page"/>
+        </a>
+        <div>
+            <p class="project-label">Amazon</p>
+            <p>Bootstrap/CSS/Javascript</p>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  );
+};
+
+export default Portfolio;
